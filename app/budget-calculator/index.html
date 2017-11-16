@@ -13,17 +13,22 @@
         <div class="Headline">The Times 2017 Autumn Budget calculator</div>
 
         <form autocomplete="off" id="form" >
+            <p>Your annual income:</p>
             <input type="text" id="incomeInput" placeholder="Enter your annual income" />
 
+            <p>Your household size:</p>
             <group class="inline-radio" id="householdInput" >
                 <div><input type="radio" name="person" checked value="one" ><label>One person</label></div>
                 <div><input type="radio" name="person" value="two"><label>Two persons</label></div>
             </group>
 
-            <select name="cases" id="dropdown">
-                 <option value="foo">foo foo</option>
-                 <option value="bar">bar bar</option>
-                 </select>
+            <div id="dropdownSection">
+                <p>Which of the following describes you best?</p>
+                <select name="cases" id="dropdown">
+                    <option value="foo">foo foo</option>
+                    <option value="bar">bar bar</option>
+                </select>
+            </div>
 
             <input type="submit" value="Search" class="Button" />
         </form>

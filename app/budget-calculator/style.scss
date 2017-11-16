@@ -22,39 +22,6 @@ $breakpoint-mobile: 767px;
         margin-bottom: 1em;
     }
 
-        input {
-        margin: 0;
-        margin-top: 2rem;
-        color: #333;
-        font-size: 1.6rem;
-        font-family: 'GillSansMTStd-Medium';
-        vertical-align: top;
-        appearance: none;
-        border: 1px solid #dbdbdb;
-        line-height: 1.8rem;
-        outline: none;
-        height: 36px;
-        color: #7d7d7d;
-        text-transform: uppercase;
-        appearance: none;
-        width: 20rem;
-
-
-        &::placeholder {
-            text-transform: none;
-        }
-
-        @media only screen and (max-width: $breakpoint-mobile) {
-            width: 70%;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            -webkit-border-radius:0;
-        }
-    }
-        #incomeInput {
-            padding: 0.8rem 0.8rem 0.3rem;
-        }
 
     .Button {
         margin: 0;
@@ -71,6 +38,11 @@ $breakpoint-mobile: 767px;
         margin-left: -5px;
         border: 0;
         box-shadow: none;
+
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
 
         @media only screen and (max-width: $breakpoint-mobile) {
             width: 30%;
@@ -97,11 +69,49 @@ $breakpoint-mobile: 767px;
     #form {
         display: block;
 
+        input {
+            margin: 0;
+            padding-top: 2rem;
+            color: #333;
+            font-size: 1.6rem;
+            font-family: 'GillSansMTStd-Medium';
+            vertical-align: top;
+            appearance: none;
+            border: 1px solid #dbdbdb;
+            line-height: 1.8rem;
+            outline: none;
+            height: 36px;
+            color: #7d7d7d;
+            text-transform: uppercase;
+            appearance: none;
+
+            &.Button {
+                padding-top: 1rem;
+                margin-top: 2rem;
+            }
+
+            &::placeholder {
+                text-transform: none;
+            }
+
+            @media only screen and (max-width: $breakpoint-mobile) {
+                width: 70%;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -webkit-border-radius:0;
+            }
+        }
+        #incomeInput {
+            padding: 0.8rem 0.8rem 0.3rem;
+            margin-bottom: 1rem;
+        }
+
         input, select {
             width: 100%;
         }
 
-        #dropdown {
+        #dropdownSection {
             display: none;
 
             &.visible {
@@ -110,59 +120,63 @@ $breakpoint-mobile: 767px;
         }
 
         .inline-radio {
-	          display: flex;
-	          overflow: hidden;
+            display: flex;
+            overflow: hidden;
             border: 1px solid #ddd;
             margin: {
-                top: 2rem;
                 bottom: 1rem;
             }
 
-	          div {
-		            position: relative;
-		            flex: 1;
-	          }
+            div {
+                position: relative;
+                flex: 1;
+                padding: 0.8rem 0.8rem 0.3rem;
+            }
 
-	          input {
+            input {
                 width: 100%;
-		            height: 20px;
+                height: 25px;
                 opacity: 0;
-	          }
 
-	          label {
-		            position: absolute;
-		            top: 0; left: 0;
-		            color: #ddd;
-		            width: 100%;
-		            height: 100%;
-		            background: #fff;
-		            display: flex;
-		            align-items: center;
-		            justify-content: center;
-		            pointer-events: none;
-		            border-right: 1px solid #ddd;
-	          }
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+            }
 
-	          div:last-child label {
-		            border-right: 0;
-	          }
+            label {
+                position: absolute;
+                top: 0; left: 0;
+                color: #ddd;
+                width: 100%;
+                height: 100%;
+                background: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+                border-right: 1px solid #ddd;
+            }
 
-	          input:checked + label {
-		            background: #254251;
+            div:last-child label {
+                border-right: 0;
+            }
+
+            input:checked + label {
+                background: #254251;
                 font-weight: 500;
-		            color: #fff;
+                color: #fff;
                 -webkit-transition: all 0.50s;
                 -moz-transition: all 0.50s;
                 -o-transition: all 0.50s;
                 transition: all 0.50s;
-	          }
+            }
         }
 
         select {
             border: 1px solid #ccc;
             width: 100%;
-            border-radius: 3px;
             overflow: hidden;
+            height: 30px;
+            padding-top: 2rem;
         }
     }
 }

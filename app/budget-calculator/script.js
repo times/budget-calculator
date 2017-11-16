@@ -76,7 +76,7 @@ if (typeof document !== 'undefined') {
     },
 
     displayDropdown: function() {
-      document.getElementById('dropdown').classList.add('visible');
+      document.getElementById('dropdownSection').classList.add('visible');
       this.dropdownVisible = true;
     },
 
