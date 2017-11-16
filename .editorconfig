@@ -1,0 +1,20 @@
+#
+# The Times EditorConfig file
+# by Aendrew Rininsland
+#
+
+# top-most EditorConfig file
+root = true
+
+# 2 spaces with UNIX newlines as default
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+
+
+# 4 space indentation
+[*.py]
+indent_style = space
+indent_size = 4

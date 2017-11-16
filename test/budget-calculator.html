@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+  <script src="../web-component-tester/browser.js"></script>
+  <link rel="import" href="../bower_components/polymer/polymer.html">
+  <link rel="import" href="../dist/budget-calculator/budget-calculator.html">
+</head>
+
+<body>
+  <budget-calculator copy="copy goes here" id="instance-1"></budget-calculator>
+
+  <script type="text/javascript">
+    
+    suite('<budget-calculator>', function() {
+
+      test('test name #1', function(){
+        assert.equal('copy goes here', document.getElementById('instance-1').copy);
+      });
+
+    });
+
+  </script>
+</body>
+</html>

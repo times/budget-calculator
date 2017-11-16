@@ -1,0 +1,40 @@
+<!-- Third party -->
+<!-- e.g. <link rel="import" href="../paper-button/paper-button.html"> -->
+
+<!-- First party -->
+<!-- e.g. <link rel="import" href="../child/index.html"> -->
+
+<!-- Main component -->
+<dom-module id="budget-calculator">
+    <template>
+
+        <link rel="stylesheet" href="styles.css" type="text/css">
+
+        <div class="Headline">The Times 2017 Autumn Budget calculator</div>
+
+        <form autocomplete="off" id="form" >
+            <input type="text" id="postcodeInput" placeholder="Enter your annual income" />
+
+            <group class="inline-radio">
+                <div><input type="radio" name="member"><label>Yes</label></div>
+                <div><input type="radio" name="member" checked><label>No</label></div>
+            </group>
+
+            <!-- <select name="cars">
+                 <option value="foo">foo foo</option>
+                 <option value="bar">bar bar</option>
+                 </select>
+            -->
+            <input type="submit" value="Search" class="Button" />
+        </form>
+        <div class="error"></div>
+
+        <div class="app-info">
+
+        </div>
+
+  </template>
+
+  <script src="bundle.js"></script>
+
+</dom-module>

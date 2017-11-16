@@ -1,0 +1,161 @@
+$breakpoint-micro: 420px;
+$breakpoint-small: 520px;
+$breakpoint-mobile: 767px;
+
+@mixin budget-calculator {
+  
+    .Headline {
+        border-top: 8px solid;
+        margin-top: .5rem;
+        color: #1D1D1B;
+        font-size: 2.8rem;
+        line-height: 3.2rem;
+        font-family: TimesModern-Bold;
+        padding-top: .5rem;
+    }
+    .Standfirst {
+        margin-top: .5rem;
+        color: #4A4A4A;
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+        font-family: TimesDigital-Regular;
+        margin-bottom: 1em;
+    }
+
+        input {
+        margin: 0;
+        margin-top: 2rem;
+        color: #333;
+        font-size: 1.6rem;
+        font-family: 'GillSansMTStd-Medium';
+        vertical-align: top;
+        appearance: none;
+        border: 1px solid #dbdbdb;
+        line-height: 1.8rem;
+        outline: none;
+        height: 36px;
+        color: #7d7d7d;
+        text-transform: uppercase;
+        appearance: none;
+        width: 20rem;
+
+
+        &::placeholder {
+            text-transform: none;
+        }
+
+        @media only screen and (max-width: $breakpoint-mobile) {
+            width: 70%;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -webkit-border-radius:0;
+        }
+    }
+        #postcodeInput {
+            padding: 0.8rem 0.8rem 0.3rem;
+        }
+
+    .Button {
+        margin: 0;
+        margin-top: 2rem;
+        padding: 1rem 0.9rem 1.1rem;
+        font-family: 'GillSansMTStd-Medium';
+        background-color: #046798;
+        color: #fff !important;
+        text-transform: uppercase;
+        line-height: 2rem;
+        font-size: 1.2rem;
+        height: 36px;
+        width: 90px;
+        margin-left: -5px;
+        border: 0;
+        box-shadow: none;
+
+        @media only screen and (max-width: $breakpoint-mobile) {
+            width: 30%;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -webkit-border-radius:0;
+            border-radius:0;
+        }
+
+        &:hover {
+            background-color: #02344d;
+            box-shadow: none;
+        }
+    }
+
+    .error {
+        font-family: 'TimesDigitalW04-RegularSC';
+        font-size: 1.4rem;
+        color: #CC0000;
+        text-transform: lowercase;
+    }
+
+    #form {
+        display: block;
+
+        input, select {
+            width: 100%;
+        }
+
+        .inline-radio {
+	          display: flex;
+	          overflow: hidden;
+            border: 1px solid #ddd;
+            margin: {
+                top: 2rem;
+                bottom: 1rem;
+            }
+
+	          div {
+		            position: relative;
+		            flex: 1;
+	          }
+
+	          input {
+                width: 100%;
+		            height: 20px;
+                opacity: 0;
+	          }
+
+	          label {
+		            position: absolute;
+		            top: 0; left: 0;
+		            color: #ddd;
+		            width: 100%;
+		            height: 100%;
+		            background: #fff;
+		            display: flex;
+		            align-items: center;
+		            justify-content: center;
+		            pointer-events: none;
+		            border-right: 1px solid #ddd;
+	          }
+
+	          div:last-child label {
+		            border-right: 0;
+	          }
+
+	          input:checked + label {
+		            background: #254251;
+                font-weight: 500;
+		            color: #fff;
+                -webkit-transition: all 0.50s;
+                -moz-transition: all 0.50s;
+                -o-transition: all 0.50s;
+                transition: all 0.50s;
+	          }
+        }
+    }
+}
+
+
+budget-calculator {
+  @include budget-calculator;
+}
+:host {
+  @include budget-calculator;
+}
