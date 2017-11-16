@@ -52,7 +52,7 @@ $breakpoint-mobile: 767px;
             -webkit-border-radius:0;
         }
     }
-        #postcodeInput {
+        #incomeInput {
             padding: 0.8rem 0.8rem 0.3rem;
         }
 
@@ -99,6 +99,14 @@ $breakpoint-mobile: 767px;
 
         input, select {
             width: 100%;
+        }
+
+        #dropdown {
+            display: none;
+
+            &.visible {
+                display: block;
+            }
         }
 
         .inline-radio {
@@ -148,6 +156,13 @@ $breakpoint-mobile: 767px;
                 -o-transition: all 0.50s;
                 transition: all 0.50s;
 	          }
+        }
+
+        select {
+            border: 1px solid #ccc;
+            width: 100%;
+            border-radius: 3px;
+            overflow: hidden;
         }
     }
 }

@@ -13,18 +13,18 @@
         <div class="Headline">The Times 2017 Autumn Budget calculator</div>
 
         <form autocomplete="off" id="form" >
-            <input type="text" id="postcodeInput" placeholder="Enter your annual income" />
+            <input type="text" id="incomeInput" placeholder="Enter your annual income" />
 
-            <group class="inline-radio">
-                <div><input type="radio" name="member"><label>Yes</label></div>
-                <div><input type="radio" name="member" checked><label>No</label></div>
+            <group class="inline-radio" id="householdInput" >
+                <div><input type="radio" name="person" checked value="one" ><label>One person</label></div>
+                <div><input type="radio" name="person" value="two"><label>Two persons</label></div>
             </group>
 
-            <!-- <select name="cars">
+            <select name="cases" id="dropdown">
                  <option value="foo">foo foo</option>
                  <option value="bar">bar bar</option>
                  </select>
-            -->
+
             <input type="submit" value="Search" class="Button" />
         </form>
         <div class="error"></div>
@@ -33,8 +33,8 @@
 
         </div>
 
-  </template>
+    </template>
 
-  <script src="bundle.js"></script>
+    <script src="bundle.js"></script>
 
 </dom-module>
