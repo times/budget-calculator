@@ -4,6 +4,7 @@ module.exports = require('../index.js')('budget-calculator');
 
 if (typeof document !== 'undefined') {
   require('./style.scss');
+  const dataset = require('./results.json');
 
   Polymer({
     is: 'budget-calculator',
@@ -14,7 +15,17 @@ if (typeof document !== 'undefined') {
     created: function() {},
 
     // Use for one-time configuration after local DOM is initialized
-    ready: function() {},
+    ready: function() {
+      // bug
+      // dataset shows one empty slot, but it definitely isn't undefined
+      // console.log(dataset, Object.keys(dataset), dataset['1']);
+
+      this.sheetsMapping = [
+        { sheet: '1', text: 'Single professional' },
+        { sheet: '2', text: 'Self-employed entrepreneur' },
+      ];
+      this.displayDropdown(this.sheetsMapping);
+    },
 
     // Called after the element is attached to the document
     attached: function() {
@@ -49,39 +60,46 @@ if (typeof document !== 'undefined') {
       }
 
       // household type: single or couple from radio checkboxes
-      let household = null;
-      const checkBoxesFormData = new FormData(this.form);
-      for (const entry of checkBoxesFormData) {
-        household = entry[1];
-      }
+      const household = document.querySelector('input[name="person"]:checked')
+        .value;
 
       // dropdown: will include the discrete list of cases from the dataset
-      if (this.dropdownVisible === true) {
-        const dropdownSelection = document.getElementById('dropdown').options[
-          document.getElementById('dropdown').selectedIndex
-        ].value;
-        this.data.dropdownSelection = dropdownSelection;
-
-        // at this stage, the dropdown has been displayed
-        // and the reader has made a choice.
-        // we've got enough to display our things
-        this.showData(this.data);
-      }
-
-      this.data = {
-        cleanIncome,
+      // if (this.dropdownVisible === true) {
+      const dropdownSelection = document.getElementById('dropdown').options[
+        document.getElementById('dropdown').selectedIndex
+      ].value;
+      // }
+      const data = {
+        income: cleanIncome,
         household,
+        case: dropdownSelection,
       };
-      this.displayDropdown();
+      this.showData(data);
     },
 
-    displayDropdown: function() {
+    displayDropdown: function(mapping) {
+      const select = document.getElementById('dropdown');
+
+      for (let i = 0; i < mapping.length; i++) {
+        let option = document.createElement('option');
+        option.setAttribute('value', mapping[i].text);
+        option.appendChild(document.createTextNode(mapping[i].text));
+        select.appendChild(option);
+      }
+
       document.getElementById('dropdown').classList.add('visible');
       this.dropdownVisible = true;
     },
 
     showData: function(data) {
-      console.log(data);
+      const sheetIDObj = this.sheetsMapping.find(e => e.text === data.case);
+      const sheetID = parseInt(sheetIDObj.sheet);
+      console.log(dataset[sheetID]);
+
+      // @TODO: test income
+      // return corresponding object
+      // set to this.allthethings
+      // pick it up in the HTML
     },
   });
 }
