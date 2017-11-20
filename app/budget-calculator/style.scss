@@ -111,14 +111,6 @@ $breakpoint-mobile: 767px;
             width: 100%;
         }
 
-        #dropdownSection {
-            display: none;
-
-            &.visible {
-                display: block;
-            }
-        }
-
         .inline-radio {
             display: flex;
             overflow: hidden;
@@ -225,7 +217,18 @@ $breakpoint-mobile: 767px;
 
             &.mid {
                 font-size: 3.5rem;
+                color: #254251;
             }
+        }
+    }
+
+    .dip {
+        opacity: .2;
+
+        &.visible {
+            opacity: 1;
+            transition: opacity 0.5s;
+            -webkit-transition: opacity 0.5s;
         }
     }
 }

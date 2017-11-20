@@ -14,18 +14,18 @@
 
         <form autocomplete="off" id="form" >
             <p>Your annual income:</p>
-            <input type="text" id="incomeInput" placeholder="Enter Your annual income" />
+            <input type="text" id="incomeInput" placeholder="Enter your annual income" />
 
-            <p>Your household size:</p>
-            <group class="inline-radio" id="householdInput" >
+            <p class="dip">Your household size:</p>
+            <group class="inline-radio dip" id="householdInput" >
                 <div><input type="radio" name="person" checked value="one" ><label>One adult</label></div>
                 <div><input type="radio" name="person" value="two"><label>Two adults</label></div>
             </group>
 
-            <select name="case" id="dropdown">
+            <select name="case" id="dropdown" class="dip">
                  </select>
 
-            <input type="submit" value="Search" class="Button" />
+            <input type="submit" value="Search" class="Button dip" />
         </form>
         <div class="error"></div>
 

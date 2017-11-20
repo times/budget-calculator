@@ -47,6 +47,13 @@ if (typeof document !== 'undefined') {
         this.getDataFromUser.bind(this),
         false
       );
+
+      this.incomeBar = this.$['incomeInput'];
+      this.incomeBar.addEventListener(
+        'focusout',
+        this.darkenButton.bind(this),
+        false
+      );
     },
 
     // Called after the element is detached from the document
@@ -99,7 +106,7 @@ if (typeof document !== 'undefined') {
         select.appendChild(option);
       }
 
-      document.getElementById('dropdown').classList.add('visible');
+      //document.getElementById('dropdown').classList.add('visible');
       this.dropdownVisible = true;
     },
 
@@ -138,6 +145,13 @@ if (typeof document !== 'undefined') {
       document.getElementById('app-info').classList.add('visible');
 
       // @TODO: handle income < 10,000
+    },
+
+    darkenButton: function() {
+      const dips = document.getElementsByClassName('dip');
+      for (let i = 0; i < dips.length; i++) {
+        dips[i].classList.add('visible');
+      }
     },
   });
 }
