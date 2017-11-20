@@ -29,7 +29,21 @@
         </form>
         <div class="error"></div>
 
-        <div class="app-info">
+        <div id="app-info">
+            <div>your income bracket: {{incomeData.income}}</div>
+
+            <div>your tax bill in 2017: £{{incomeData.tax_nic_bill_2017}}</div>
+            <div>your tax bill in 2016: £{{incomeData.tax_nic_bill_2016}}</div>
+            <div>your income change this year: {{incomeData.income_change_2017}}</div>
+
+            <div>your tax bill in 2018: £{{incomeData.tax_nic_bill_2018}}</div>
+            <div>your tax bill in 2017: £{{incomeData.tax_nic_bill_2017}}</div>
+            <div>your income change next year: {{incomeData.income_change_2018}}</div>
+
+            <div>your child benefit in 2016: £{{incomeData.child_benefit_2016}}</div>
+            <div>your child benefit in 2017: £{{incomeData.child_benefit_2017}}</div>
+            <div>your child benefit in 2018: £{{incomeData.child_benefit_2018}}</div>
+
         </div>
 
     </template>

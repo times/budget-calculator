@@ -176,7 +176,14 @@ $breakpoint-mobile: 767px;
             width: 100%;
             overflow: hidden;
             height: 30px;
-            padding-top: 2rem;
+        }
+    }
+
+    #app-info {
+        display: none;
+
+        &.visible {
+            display: block;
         }
     }
 }

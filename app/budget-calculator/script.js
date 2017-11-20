@@ -69,12 +69,12 @@ if (typeof document !== 'undefined') {
         document.getElementById('dropdown').selectedIndex
       ].value;
       // }
-      const data = {
+      this.data = {
         income: cleanIncome,
         household,
         case: dropdownSelection,
       };
-      this.showData(data);
+      this.showData(this.data);
     },
 
     displayDropdown: function(mapping) {
@@ -94,12 +94,22 @@ if (typeof document !== 'undefined') {
     showData: function(data) {
       const sheetIDObj = this.sheetsMapping.find(e => e.text === data.case);
       const sheetID = parseInt(sheetIDObj.sheet);
-      console.log(dataset[sheetID]);
 
-      // @TODO: test income
-      // return corresponding object
-      // set to this.allthethings
-      // pick it up in the HTML
+      // Sort rows in ascending order of income
+      const dataFromTables = dataset[sheetID];
+      const sortedDataFromTables = dataFromTables.sort(
+        (a, b) => parseInt(a.income) - parseInt(b.income)
+      );
+
+      const incomeBracket = sortedDataFromTables.reverse().find(income => {
+        return income.income <= this.data.income;
+      });
+      console.log(incomeBracket);
+      this.incomeData = incomeBracket;
+
+      document.getElementById('app-info').classList.add('visible');
+
+      // @TODO: handle income < 10,000
     },
   });
 }
