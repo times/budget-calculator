@@ -21,8 +21,20 @@ if (typeof document !== 'undefined') {
       // console.log(dataset, Object.keys(dataset), dataset['1']);
 
       this.sheetsMapping = [
-        { sheet: '1', text: 'Single professional' },
-        { sheet: '2', text: 'Self-employed entrepreneur' },
+        {
+          sheet: '1',
+          text: 'Single professional',
+          label: 'single person, working 30+ hours per week, no children',
+          notes:
+            "The figures include an estimate of the effect of the 0.5% rise in Insurance Premium Tax from October 2016 and 2% rise from 1 June 2017.  For 2017/18 this broadly equates to an average estimated increase of £28.75 for a family with motor, household, pet and private health totalling £1,500 per annum.  For 2018/19 the estimated increase compared to 2016/17 is £30.00 per annum.  These figures do not reflect the Chancellor's commitment to legislate to end the compensation culture surrounding whiplash claims which could save drivers an average of £40 on their premiums. The figures include changes to rates which had been announced previously, either at Budget 2016 or separately.",
+        },
+        {
+          sheet: '2',
+          text: 'Self-employed entrepreneur',
+          label: 'single self-employed person, working 30+ hours per week',
+          notes:
+            "The figures include an estimate of the effect of the 0.5% rise in Insurance Premium Tax from October 2016 and 2% rise from 1 June 2017.  For 2017/18 this broadly equates to an average estimated increase of £28.75 for a family with motor, household, pet and private health totalling £1,500 per annum.  For 2018/19 the estimated increase compared to 2016/17 is £30.00 per annum.  These figures do not reflect the Chancellor's commitment to legislate to end the compensation culture surrounding whiplash claims which could save drivers an average of £40 on their premiums. The figures include changes to rates which had been announced previously, either at Budget 2016 or separately.",
+        },
       ];
       this.displayDropdown(this.sheetsMapping);
     },
@@ -94,6 +106,8 @@ if (typeof document !== 'undefined') {
     showData: function(data) {
       const sheetIDObj = this.sheetsMapping.find(e => e.text === data.case);
       const sheetID = parseInt(sheetIDObj.sheet);
+      this.sheetLabel = sheetIDObj.label;
+      this.sheetNotes = sheetIDObj.notes;
 
       // Sort rows in ascending order of income
       const dataFromTables = dataset[sheetID];
@@ -101,6 +115,7 @@ if (typeof document !== 'undefined') {
         (a, b) => parseInt(a.income) - parseInt(b.income)
       );
 
+      // Return last row to be in the bracket range
       const incomeBracket = sortedDataFromTables.reverse().find(income => {
         return income.income <= this.data.income;
       });

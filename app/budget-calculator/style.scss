@@ -3,7 +3,7 @@ $breakpoint-small: 520px;
 $breakpoint-mobile: 767px;
 
 @mixin budget-calculator {
-  
+
     .Headline {
         border-top: 8px solid;
         margin-top: .5rem;
@@ -207,6 +207,12 @@ $breakpoint-mobile: 767px;
             flex-direction: column;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+
+            &.notes {
+                font-size: 1.3rem;
+                margin-top: 3rem;
+                color: #696969;
+            }
         }
 
         .big {

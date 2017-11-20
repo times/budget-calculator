@@ -18,8 +18,8 @@
 
             <p>Your household size:</p>
             <group class="inline-radio" id="householdInput" >
-                <div><input type="radio" name="person" checked value="one" ><label>One person</label></div>
-                <div><input type="radio" name="person" value="two"><label>Two persons</label></div>
+                <div><input type="radio" name="person" checked value="one" ><label>One adult</label></div>
+                <div><input type="radio" name="person" value="two"><label>Two adults</label></div>
             </group>
 
             <select name="case" id="dropdown">
@@ -32,29 +32,32 @@
         <div id="app-info">
             <!-- <div>Your income bracket: {{incomeData.income}}</div> -->
 
+            <p>Figures for a reference income of {{incomeData.income_str}} for a {{sheetLabel}}</p>
             <div class="row">
                 <div class="col">
-                    <div class="label">Your income change this year:</div>
+                    <div class="label">Your income change this year (2017/18):</div>
                     <div class="big">{{incomeData.income_change_2017_str}}</div>
                 </div>
                 <div class="col">
-                    <div class="label">Your income change next year:</div>
+                    <div class="label">Your income change next year (2018/19):</div>
                     <div class="big">{{incomeData.income_change_2018_str}}</div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <div class="label">Your total income this year:</div>
+                    <div class="label">Your net income this year (2017/18):</div>
                     <div class="big mid">{{incomeData.total_income_2017_str}}</div>
-                    <div class="label">including a {{incomeData.tax_nic_bill_2017_str}} tax bill</div>
+                    <div class="label">after deduction of a {{incomeData.tax_nic_bill_2017_str}} tax bill</div>
                 </div>
                 <div class="col">
-                    <div class="label">Your total income next year:</div>
+                    <div class="label">Your net income next year (2018/19):</div>
                     <div class="big mid">{{incomeData.total_income_2018_str}}</div>
-                    <div class="label">including a {{incomeData.tax_nic_bill_2018_str}} tax bill</div>
+                    <div class="label">after deduction of a {{incomeData.tax_nic_bill_2018_str}} tax bill</div>
                 </div>
             </div>
+
+            <div class="label notes">{{sheetNotes}}</div>
 
             <!-- <div>Your child benefit in 2016: £{{incomeData.child_benefit_2016}}</div> -->
             <!-- <div>Your child benefit in 2017: £{{incomeData.child_benefit_2017}}</div> -->
