@@ -181,9 +181,45 @@ $breakpoint-mobile: 767px;
 
     #app-info {
         display: none;
+        margin-top: 1rem;
 
         &.visible {
             display: block;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+
+            .col {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1.5rem;
+            }
+        }
+
+        .label {
+            font-family: 'GillSansMTStd-Medium';
+            font-size: 1.5rem;
+            text-align: left;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .big {
+            font-family: TimesModern-Bold;
+            font-size: 6.5rem;
+            line-height: 1.22;
+            color: #069;
+            margin-top: -.1em;
+            margin-bottom: -.15em;
+
+            &.mid {
+                font-size: 3.5rem;
+            }
         }
     }
 }

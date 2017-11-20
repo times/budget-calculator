@@ -104,7 +104,20 @@ if (typeof document !== 'undefined') {
       const incomeBracket = sortedDataFromTables.reverse().find(income => {
         return income.income <= this.data.income;
       });
-      console.log(incomeBracket);
+
+      // turn data into meaningful strings with £ sign and +/ in the right place
+      for (const prop in incomeBracket) {
+        if (incomeBracket.hasOwnProperty(prop)) {
+          if (incomeBracket[prop] < 0) {
+            incomeBracket[prop + '_str'] =
+              '-£' + Math.abs(incomeBracket[prop]).toLocaleString();
+          } else {
+            incomeBracket[prop + '_str'] =
+              '£' + incomeBracket[prop].toLocaleString();
+          }
+        }
+      }
+
       this.incomeData = incomeBracket;
 
       document.getElementById('app-info').classList.add('visible');
