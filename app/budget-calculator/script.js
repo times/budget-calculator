@@ -24,14 +24,16 @@ if (typeof document !== 'undefined') {
         {
           sheet: '1',
           text: 'Single professional',
-          label: 'single person, working 30+ hours per week, no children',
+          label:
+            'single person, employed, working 30+ hours per week, no children, no student debt',
           notes:
             "The figures include an estimate of the effect of the 0.5% rise in Insurance Premium Tax from October 2016 and 2% rise from 1 June 2017.  For 2017/18 this broadly equates to an average estimated increase of £28.75 for a family with motor, household, pet and private health totalling £1,500 per annum.  For 2018/19 the estimated increase compared to 2016/17 is £30.00 per annum.  These figures do not reflect the Chancellor's commitment to legislate to end the compensation culture surrounding whiplash claims which could save drivers an average of £40 on their premiums. The figures include changes to rates which had been announced previously, either at Budget 2016 or separately.",
         },
         {
           sheet: '2',
-          text: 'Self-employed entrepreneur',
-          label: 'single self-employed person, working 30+ hours per week',
+          text: 'Entrepreneur',
+          label:
+            'Single person, self-employed, working 30+ hours per week, no children',
           notes:
             "The figures include an estimate of the effect of the 0.5% rise in Insurance Premium Tax from October 2016 and 2% rise from 1 June 2017.  For 2017/18 this broadly equates to an average estimated increase of £28.75 for a family with motor, household, pet and private health totalling £1,500 per annum.  For 2018/19 the estimated increase compared to 2016/17 is £30.00 per annum.  These figures do not reflect the Chancellor's commitment to legislate to end the compensation culture surrounding whiplash claims which could save drivers an average of £40 on their premiums. The figures include changes to rates which had been announced previously, either at Budget 2016 or separately.",
         },
@@ -78,10 +80,6 @@ if (typeof document !== 'undefined') {
         return;
       }
 
-      // household type: single or couple from radio checkboxes
-      const household = document.querySelector('input[name="person"]:checked')
-        .value;
-
       // dropdown: will include the discrete list of cases from the dataset
       // if (this.dropdownVisible === true) {
       const dropdownSelection = document.getElementById('dropdown').options[
@@ -90,7 +88,6 @@ if (typeof document !== 'undefined') {
       // }
       this.data = {
         income: cleanIncome,
-        household,
         case: dropdownSelection,
       };
       this.showData(this.data);
@@ -106,7 +103,6 @@ if (typeof document !== 'undefined') {
         select.appendChild(option);
       }
 
-      //document.getElementById('dropdown').classList.add('visible');
       this.dropdownVisible = true;
     },
 
@@ -133,6 +129,9 @@ if (typeof document !== 'undefined') {
           if (incomeBracket[prop] < 0) {
             incomeBracket[prop + '_str'] =
               '-£' + Math.abs(incomeBracket[prop]).toLocaleString();
+          } else if (prop === 'income_change_2018') {
+            incomeBracket[prop + '_str'] =
+              '+£' + incomeBracket[prop].toLocaleString();
           } else {
             incomeBracket[prop + '_str'] =
               '£' + incomeBracket[prop].toLocaleString();
@@ -143,6 +142,12 @@ if (typeof document !== 'undefined') {
       this.incomeData = incomeBracket;
 
       document.getElementById('app-info').classList.add('visible');
+
+      const showMore = this.$['showMore'];
+      showMore.addEventListener('click', e => {
+        document.getElementsByClassName('notes')[0].classList.add('visible');
+        document.getElementById('showMore').classList.add('invisible');
+      });
 
       // @TODO: handle income < 10,000
     },

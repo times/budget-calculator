@@ -201,9 +201,40 @@ $breakpoint-mobile: 767px;
             -moz-osx-font-smoothing: grayscale;
 
             &.notes {
+                display: none;
+                opacity: 0;
                 font-size: 1.3rem;
-                margin-top: 3rem;
+                margin-top: 1rem;
                 color: #696969;
+
+                &.visible {
+                    display: block;
+                    opacity: 1;
+                    transition: opacity 0.8s;
+                    -webkit-transition: opacity 0.8s;
+                }
+            }
+
+            & .Icon {
+                color: !important;
+            }
+            & .Icon:hover {
+                color: #69696A !important;
+            }
+        }
+
+        #showMore {
+            margin-top: 2rem;
+            display: inline-block;
+
+            &:hover {
+                color: black;
+                transition: color 0.5s;
+                -webkit-transition: color 0.5s;
+            }
+
+            &.invisible {
+                display: none;
             }
         }
 

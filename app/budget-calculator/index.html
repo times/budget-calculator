@@ -10,17 +10,11 @@
 
         <link rel="stylesheet" href="styles.css" type="text/css">
 
-        <div class="Headline">The Times 2017 Autumn Budget calculator</div>
+        <div class="Headline">The Times 2017 budget calculator</div>
 
         <form autocomplete="off" id="form" >
             <p>Your annual income:</p>
             <input type="text" id="incomeInput" placeholder="Enter your annual income" />
-
-            <p class="dip">Your household size:</p>
-            <group class="inline-radio dip" id="householdInput" >
-                <div><input type="radio" name="person" checked value="one" ><label>One adult</label></div>
-                <div><input type="radio" name="person" value="two"><label>Two adults</label></div>
-            </group>
 
             <select name="case" id="dropdown" class="dip">
                  </select>
@@ -34,10 +28,6 @@
 
             <p>Figures for a reference income of {{incomeData.income_str}} for a {{sheetLabel}}</p>
             <div class="row">
-                <div class="col">
-                    <div class="label">Your income change this year (2017/18):</div>
-                    <div class="big">{{incomeData.income_change_2017_str}}</div>
-                </div>
                 <div class="col">
                     <div class="label">Your income change next year (2018/19):</div>
                     <div class="big">{{incomeData.income_change_2018_str}}</div>
@@ -57,6 +47,7 @@
                 </div>
             </div>
 
+            <div class="label" id="showMore">Show more <i class="Icon Icon--arrowRight"></i></div>
             <div class="label notes">{{sheetNotes}}</div>
 
             <!-- <div>Your child benefit in 2016: £{{incomeData.child_benefit_2016}}</div> -->
