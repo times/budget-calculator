@@ -33,7 +33,15 @@ if (typeof document !== 'undefined') {
           sheet: '2',
           text: 'Entrepreneur',
           label:
-            'Single person, self-employed, working 30+ hours per week, no children',
+            'single person, self-employed, working 30+ hours per week, no children',
+          notes:
+            "The figures include an estimate of the effect of the 0.5% rise in Insurance Premium Tax from October 2016 and 2% rise from 1 June 2017.  For 2017/18 this broadly equates to an average estimated increase of £28.75 for a family with motor, household, pet and private health totalling £1,500 per annum.  For 2018/19 the estimated increase compared to 2016/17 is £30.00 per annum.  These figures do not reflect the Chancellor's commitment to legislate to end the compensation culture surrounding whiplash claims which could save drivers an average of £40 on their premiums. The figures include changes to rates which had been announced previously, either at Budget 2016 or separately.",
+        },
+        {
+          sheet: '3',
+          text: 'Single Parent, 1 child',
+          label:
+            'single person, working, 1 child (over the age of 1), working 30+ hours per week',
           notes:
             "The figures include an estimate of the effect of the 0.5% rise in Insurance Premium Tax from October 2016 and 2% rise from 1 June 2017.  For 2017/18 this broadly equates to an average estimated increase of £28.75 for a family with motor, household, pet and private health totalling £1,500 per annum.  For 2018/19 the estimated increase compared to 2016/17 is £30.00 per annum.  These figures do not reflect the Chancellor's commitment to legislate to end the compensation culture surrounding whiplash claims which could save drivers an average of £40 on their premiums. The figures include changes to rates which had been announced previously, either at Budget 2016 or separately.",
         },
@@ -140,9 +148,11 @@ if (typeof document !== 'undefined') {
       }
 
       this.incomeData = incomeBracket;
+      console.log(incomeBracket);
 
       document.getElementById('app-info').classList.add('visible');
 
+      // bind click event on show more button
       const showMore = this.$['showMore'];
       showMore.addEventListener('click', e => {
         document.getElementsByClassName('notes')[0].classList.add('visible');
