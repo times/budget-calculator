@@ -127,8 +127,8 @@ if (typeof document !== 'undefined') {
 
       // dropdown: will include the discrete list of cases from the dataset
       // if (this.dropdownVisible === true) {
-      const dropdownSelection = document.getElementById('dropdown').options[
-        document.getElementById('dropdown').selectedIndex
+      const dropdownSelection = this.$$('#dropdown').options[
+        this.$$('#dropdown').selectedIndex
       ].value;
       // }
       this.data = {
@@ -142,7 +142,7 @@ if (typeof document !== 'undefined') {
     },
 
     displayDropdown: function(mapping) {
-      const select = document.getElementById('dropdown');
+      const select = this.$$('#dropdown');
 
       for (let i = 0; i < mapping.length; i++) {
         let option = document.createElement('option');
@@ -205,13 +205,13 @@ if (typeof document !== 'undefined') {
 
       this.incomeData = incomeBracket;
 
-      document.getElementById('app-info').classList.add('visible');
+      this.$$('#app-info').classList.add('visible');
 
       // bind click event on show more button
       const showMore = this.$['showMore'];
       showMore.addEventListener('click', e => {
-        document.getElementsByClassName('notes')[0].classList.add('visible');
-        document.getElementById('showMore').classList.add('invisible');
+        this.$$('.notes').classList.add('visible');
+        this.$$('#showMore').classList.add('invisible');
       });
     },
   });
