@@ -20,6 +20,7 @@ if (typeof document !== 'undefined') {
       // dataset shows one empty slot, but it definitely isn't undefined
       // console.log(dataset, Object.keys(dataset), dataset['1']);
 
+      console.log(ga);
       this.sheetsMapping = [
         {
           sheet: '1',
@@ -99,6 +100,11 @@ if (typeof document !== 'undefined') {
         case: dropdownSelection,
       };
       this.showData(this.data);
+
+      // send income input
+      console.log(
+        ga('send', 'event', 'budget-calculator', 'income', this.data.income)
+      );
     },
 
     displayDropdown: function(mapping) {
@@ -119,6 +125,16 @@ if (typeof document !== 'undefined') {
       const sheetID = parseInt(sheetIDObj.sheet);
       this.sheetLabel = sheetIDObj.label;
       this.sheetNotes = sheetIDObj.notes;
+
+      // send selected case, eg entrepreneur, family of 3, etc.
+      ga('send', 'event', 'budget-calculator', 'case', this.sheetLabel);
+      ga(
+        'send',
+        'event',
+        'budget-calculator',
+        'unique_cases',
+        this.data.income + ', ' + this.sheetLabel
+      );
 
       // Sort rows in ascending order of income
       const dataFromTables = dataset[sheetID];
