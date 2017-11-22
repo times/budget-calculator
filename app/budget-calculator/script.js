@@ -20,7 +20,6 @@ if (typeof document !== 'undefined') {
       // dataset shows one empty slot, but it definitely isn't undefined
       // console.log(dataset, Object.keys(dataset), dataset['1']);
 
-      console.log(ga);
       this.sheetsMapping = [
         {
           sheet: '1',

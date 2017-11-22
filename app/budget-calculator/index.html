@@ -13,13 +13,13 @@
         <div class="Headline">The Times 2017 budget calculator</div>
 
         <form autocomplete="off" id="form" >
-            <p>Your annual income:</p>
             <input type="text" id="incomeInput" placeholder="Enter your annual income" />
 
-            <select name="case" id="dropdown" class="dip">
-                 </select>
+            <select name="case" id="dropdown">
+                <option value="" disabled selected>Your status<i class="Icon Icon--arrowRight"></i></option>
+            </select>
 
-            <input type="submit" value="Search" class="Button dip" />
+            <input type="submit" value="Search" class="Button" />
         </form>
         <div class="error"></div>
 
