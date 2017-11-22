@@ -28,8 +28,7 @@
         <div class="error"></div>
 
         <div id="app-info">
-            <p>Your closest income band is {{incomeData.income_str}}.</p>
-            <p>Figures for a {{sheetLabel}}.</p>
+            <p>Your closest income band is {{incomeData.income_str}}. Figures for a {{sheetLabel}}.</p>
             <div class="row">
                 <div class="col">
                     <div class="label">Income change next year (2018/19):</div>
@@ -41,12 +40,12 @@
                 <div class="col">
                     <div class="label">Your net income this year (2017/18):</div>
                     <div class="big mid">{{incomeData.total_income_2017_str}}</div>
-                    <div class="label gill">after deduction of a {{incomeData.tax_nic_bill_2017_str}} tax bill</div>
+                    <div class="label gill">after a {{incomeData.tax_nic_bill_2017_str}} tax deduction</div>
                 </div>
                 <div class="col">
                     <div class="label">Your net income next year (2018/19):</div>
                     <div class="big mid">{{incomeData.total_income_2018_str}}</div>
-                    <div class="label gill">after deduction of a {{incomeData.tax_nic_bill_2018_str}} tax bill</div>
+                    <div class="label gill">after a {{incomeData.tax_nic_bill_2018_str}} tax deduction</div>
                 </div>
             </div>
 
