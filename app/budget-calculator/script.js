@@ -113,7 +113,7 @@ if (typeof document !== 'undefined') {
 
       // income from text box
       const income = this.$['incomeInput'].value.replace(/,/g, '');
-      const cleanIncome = parseInt(income);
+      const cleanIncome = parseInt(income.replace(/£/g, ''));
       if (isNaN(cleanIncome)) {
         this.$$('.error').innerHTML =
           'THERE HAS BEEN A PROBLEM PARSING YOUR INCOME.';
