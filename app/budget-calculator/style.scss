@@ -3,321 +3,320 @@ $breakpoint-small: 520px;
 $breakpoint-mobile: 767px;
 
 @mixin budget-calculator {
+  .Headline {
+    border-top: 8px solid;
+    margin-top: 0.5rem;
+    color: #1d1d1b;
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    font-family: TimesModern-Bold;
+    padding-top: 0.5rem;
+  }
+  .Standfirst {
+    margin-top: 0.5rem;
+    color: #4a4a4a;
+    font-size: 1.8rem;
+    line-height: 1.67;
+    font-family: TimesDigital-Regular;
+    margin-bottom: 1em;
+  }
 
-    .Headline {
-        border-top: 8px solid;
-        margin-top: .5rem;
-        color: #1D1D1B;
-        font-size: 2.8rem;
-        line-height: 3.2rem;
-        font-family: TimesModern-Bold;
-        padding-top: .5rem;
+  .Button {
+    margin: 0;
+    margin-top: 2rem;
+    font-family: 'GillSansMTStd-Medium';
+    background-color: #046798;
+    color: #fff !important;
+    text-transform: uppercase;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    height: 36px;
+    width: 90px;
+    margin-left: -5px;
+    border: 0;
+    box-shadow: none;
+
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+      width: 30%;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -webkit-border-radius: 0;
+      border-radius: 0;
     }
-    .Standfirst {
-        margin-top: .5rem;
-        color: #4A4A4A;
-        font-size: 1.8rem;
-        line-height: 1.67;
-        font-family: TimesDigital-Regular;
-        margin-bottom: 1em;
+
+    &:hover {
+      background-color: #02344d;
+      box-shadow: none;
+    }
+  }
+
+  .error {
+    font-family: 'TimesDigitalW04-RegularSC';
+    font-size: 1.4rem;
+    color: #cc0000;
+    text-transform: lowercase;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    @media only screen and (min-width: $breakpoint-small) {
+      flex-direction: row;
+      margin-top: 3rem;
     }
 
+    input {
+      margin: 0;
+      padding-top: 2rem;
+      font-size: 1.6rem;
+      font-family: 'GillSansMTStd-Medium';
+      vertical-align: top;
+      appearance: none;
+      border: 1px solid #dbdbdb;
+      line-height: 1.8rem;
+      text-transform: uppercase;
+      appearance: none;
+      color: #1d1d1b;
 
-    .Button {
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
         margin: 0;
-        margin-top: 2rem;
-        font-family: 'GillSansMTStd-Medium';
-        background-color: #046798;
-        color: #fff !important;
-        text-transform: uppercase;
-        line-height: 2rem;
-        font-size: 1.5rem;
-        height: 36px;
-        width: 90px;
-        margin-left: -5px;
+      }
+
+      &.Button {
         border: 0;
-        box-shadow: none;
+        padding-top: 1.2rem;
 
-        border-top-right-radius: 0;
-        border-top-left-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-
-        @media only screen and (max-width: $breakpoint-mobile) {
-            width: 30%;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            -webkit-border-radius:0;
-            border-radius:0;
+        @media only screen and (max-width: $breakpoint-small) {
+          margin-top: 1rem;
+          padding-top: 1rem;
         }
+      }
 
-        &:hover {
-            background-color: #02344d;
-            box-shadow: none;
-        }
+      &::placeholder {
+        text-transform: none;
+        color: #7d7d7d;
+      }
+
+      @media only screen and (max-width: $breakpoint-mobile) {
+        width: 70%;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -webkit-border-radius: 0;
+      }
+    }
+    #incomeInput {
+      padding: 0.8rem 0.8rem 0.3rem;
+      margin-bottom: 1rem;
     }
 
-    .error {
-        font-family: 'TimesDigitalW04-RegularSC';
-        font-size: 1.4rem;
-        color: #CC0000;
-        text-transform: lowercase;
+    input,
+    .selectWrapper,
+    .Button {
+      width: 100%;
+      height: 45px;
+
+      @media only screen and (min-width: $breakpoint-small) {
+        width: 33%;
+        height: 50px;
+      }
     }
 
-    #form {
-        display: flex;
+    @media only screen and (min-width: $breakpoint-small) {
+      .Button {
+        margin-left: 1rem;
+      }
+      input {
+        margin-right: 1rem;
+      }
+    }
+
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      border-radius: 0;
+      background-color: #fff;
+      border: 1px solid #dbdbdb;
+      line-height: 1.8rem;
+      overflow: hidden;
+      color: #1d1d1b;
+      font-size: 1.6rem;
+      font-family: 'GillSansMTStd-Medium';
+      vertical-align: top;
+      padding: 0.8rem 0.8rem 0.3rem;
+    }
+
+    .selectWrapper {
+      position: relative;
+
+      i {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        z-index: 1;
+        font-size: 0.8rem;
+        pointer-events: none;
+      }
+
+      select {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  #app-info {
+    display: none;
+    margin-top: 1rem;
+
+    p {
+      font-size: 1.8rem;
+      line-height: 1.33;
+      color: #4a4a4a;
+    }
+
+    &.visible {
+      display: block;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+
+      @media only screen and (min-width: $breakpoint-small) {
+        padding-left: 2rem;
+        padding-bottom: 1rem;
+        flex-direction: row;
+      }
+      @media only screen and (max-width: $breakpoint-small) {
+        margin: 0 auto;
+        width: 90%;
+      }
+
+      .col {
         flex-direction: column;
+        width: 100%;
+        margin-top: 1.5rem;
+      }
+
+      &.borderTop {
+        border-top: 1px solid #dbdbdb;
+        padding-top: 1rem;
+      }
+      &.borderBottom {
+        border-bottom: 1px solid #dbdbdb;
+        padding-bottom: 2rem;
+      }
+
+      &:nth-of-type(1) {
         margin-top: 2rem;
-
-        @media only screen and (min-width: $breakpoint-small) {
-            flex-direction: row;
-            margin-top: 3rem;
-        }
-
-        input {
-            margin: 0;
-            padding-top: 2rem;
-            font-size: 1.6rem;
-            font-family: 'GillSansMTStd-Medium';
-            vertical-align: top;
-            appearance: none;
-            border: 1px solid #dbdbdb;
-            line-height: 1.8rem;
-            text-transform: uppercase;
-            appearance: none;
-            color: #1d1d1b;
-
-            &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
-                -webkit-appearance: none; 
-                margin: 0;
-            }
-
-            &.Button {
-                border: 0;
-                padding-top: 1.2rem;
-
-                @media only screen and (max-width: $breakpoint-small) {
-                    margin-top: 1rem;
-                    padding-top: 1rem;
-                }
-            }
-
-            &::placeholder {
-                text-transform: none;
-                color: #7d7d7d;
-            }
-
-            @media only screen and (max-width: $breakpoint-mobile) {
-                width: 70%;
-                appearance: none;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                -webkit-border-radius:0;
-            }
-        }
-        #incomeInput {
-            padding: 0.8rem 0.8rem 0.3rem;
-            margin-bottom: 1rem;
-        }
-
-        input, .selectWrapper, .Button {
-            width: 100%;
-            height: 45px;
-
-            @media only screen and (min-width: $breakpoint-small) {
-                width: 33%;
-                height: 50px;
-            }
-        }
-
-        @media only screen and (min-width: $breakpoint-small) {
-            .Button {
-                margin-left: 1rem;
-            }
-            input {
-                margin-right: 1rem;
-            }
-        }
-
-        select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-
-            border-radius: 0;
-            background-color: #fff;
-            border: 1px solid #dbdbdb;
-            line-height: 1.8rem;
-            overflow: hidden;
-            color: #1d1d1b;
-            font-size: 1.6rem;
-            font-family: 'GillSansMTStd-Medium';
-            vertical-align: top;
-            padding: 0.8rem 0.8rem 0.3rem;
-        }
-
-        .selectWrapper {
-            position: relative;
-
-            i {
-                position: absolute;
-                right: 1rem;
-                top: 50%;
-                z-index: 1;
-                font-size: .8rem;
-            }
-
-            select {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-            }
-        }
+      }
     }
 
-    #app-info {
-        display: none;
-        margin-top: 1rem;
+    .label {
+      font-family: 'TimesDigitalW04-Regular';
+      font-size: 1.6rem;
+      text-align: left;
+      color: #1d1d1d;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
 
-        p {
-            font-size: 1.8rem;
-            line-height: 1.33;
-            color: #4a4a4a;
-        }
+      &.gill {
+        font-family: 'GillSansMTStd-Medium';
+        font-size: 1.4rem;
+        color: #696969;
+        line-height: 1.5;
+      }
+
+      &.notes {
+        display: none;
+        opacity: 0;
+        font-family: 'GillSansMTStd-Medium';
+        font-size: 1.3rem;
+        margin-top: 1rem;
+        color: #696969;
 
         &.visible {
-            display: block;
+          display: block;
+          opacity: 1;
+          transition: opacity 0.8s;
+          -webkit-transition: opacity 0.8s;
         }
 
-        .row {
-            display: flex;
-            flex-direction: column;
-
-            @media only screen and (min-width: $breakpoint-small) {
-                padding-left: 2rem;
-                padding-bottom: 1rem;
-                flex-direction: row;
-            }
-            @media only screen and (max-width: $breakpoint-small) {
-                margin: 0 auto;
-                width: 90%;
-            }
-
-
-            .col {
-                flex-direction: column;
-                width: 100%;
-                margin-top: 1.5rem;
-            }
-
-            &.borderTop {
-                border-top: 1px solid #dbdbdb;
-                padding-top: 1rem;
-            }
-            &.borderBottom {
-                border-bottom: 1px solid #dbdbdb;
-                padding-bottom: 2rem;
-            }
-
-            &:nth-of-type(1) {
-                margin-top: 2rem;
-            }
+        .pwcLogo {
+          img {
+            width: 3rem;
+            margin-right: 1rem;
+          }
+          float: left;
+          margin-top: 0.5rem;
         }
+      }
 
-        .label {
-            font-family: 'TimesDigitalW04-Regular';
-            font-size: 1.6rem;
-            text-align: left;
-            color: #1d1d1d;
-            display: flex;
-            flex-direction: column;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-
-            &.gill {
-                font-family: 'GillSansMTStd-Medium';
-                font-size: 1.4rem;
-                color: #696969;
-                line-height: 1.5;
-            }
-
-            &.notes {
-                display: none;
-                opacity: 0;
-                font-family: 'GillSansMTStd-Medium';
-                font-size: 1.3rem;
-                margin-top: 1rem;
-                color: #696969;
-
-                &.visible {
-                    display: block;
-                    opacity: 1;
-                    transition: opacity 0.8s;
-                    -webkit-transition: opacity 0.8s;
-                }
-
-                .pwcLogo {
-                    img {
-                        width: 3rem;
-                        margin-right: 1rem;
-                    }
-                    float: left;
-                    margin-top: .5rem;
-                }
-            }
-
-            & .Icon {
-                color: !important;
-            }
-            & .Icon:hover {
-                color: #69696A !important;
-            }
-        }
-
-        #showMore {
-            margin-top: 2rem;
-            display: inline-block;
-
-            &:hover {
-                color: black;
-                transition: color 0.5s;
-                -webkit-transition: color 0.5s;
-            }
-
-            &.invisible {
-                display: none;
-            }
-        }
-
-        .big {
-            font-family: TimesModern-Bold;
-            font-size: 12rem;
-            line-height: 1.08;
-            color: #254251;
-            margin-top: -.1em;
-            margin-bottom: -.15em;
-
-            &.income {
-                margin-top: -1rem;
-
-                @media only screen and (max-width: $breakpoint-small) {
-                    margin-bottom: .3rem;
-                }
-            }
-
-            &.mid {
-                font-size: 4.6rem;
-                line-height: 1.22;
-                color: #0a6795;
-            }
-        }
+      & .Icon {
+        color: !important;
+      }
+      & .Icon:hover {
+        color: #69696a !important;
+      }
     }
 
-}
+    #showMore {
+      margin-top: 2rem;
+      display: inline-block;
 
+      &:hover {
+        color: black;
+        transition: color 0.5s;
+        -webkit-transition: color 0.5s;
+      }
+
+      &.invisible {
+        display: none;
+      }
+    }
+
+    .big {
+      font-family: TimesModern-Bold;
+      font-size: 12rem;
+      line-height: 1.08;
+      color: #254251;
+      margin-top: -0.1em;
+      margin-bottom: -0.15em;
+
+      &.income {
+        margin-top: -1rem;
+
+        @media only screen and (max-width: $breakpoint-small) {
+          margin-bottom: 0.3rem;
+        }
+      }
+
+      &.mid {
+        font-size: 4.6rem;
+        line-height: 1.22;
+        color: #0a6795;
+      }
+    }
+  }
+}
 
 budget-calculator {
   @include budget-calculator;
