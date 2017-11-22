@@ -17,7 +17,7 @@ $breakpoint-mobile: 767px;
         margin-top: .5rem;
         color: #4A4A4A;
         font-size: 1.8rem;
-        line-height: 2.6rem;
+        line-height: 1.67;
         font-family: TimesDigital-Regular;
         margin-bottom: 1em;
     }
@@ -26,13 +26,12 @@ $breakpoint-mobile: 767px;
     .Button {
         margin: 0;
         margin-top: 2rem;
-        padding: 1rem 0.9rem 1.1rem;
         font-family: 'GillSansMTStd-Medium';
         background-color: #046798;
         color: #fff !important;
         text-transform: uppercase;
         line-height: 2rem;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         height: 36px;
         width: 90px;
         margin-left: -5px;
@@ -79,19 +78,24 @@ $breakpoint-mobile: 767px;
         input {
             margin: 0;
             padding-top: 2rem;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-family: 'GillSansMTStd-Medium';
             vertical-align: top;
             appearance: none;
             border: 1px solid #dbdbdb;
             line-height: 1.8rem;
-            outline: none;
-            color: #7d7d7d;
             text-transform: uppercase;
             appearance: none;
+            color: #1d1d1b;
+
+            &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+                -webkit-appearance: none; 
+                margin: 0;
+            }
 
             &.Button {
                 border: 0;
+                padding-top: 1.2rem;
 
                 @media only screen and (max-width: $breakpoint-small) {
                     margin-top: 1rem;
@@ -101,6 +105,7 @@ $breakpoint-mobile: 767px;
 
             &::placeholder {
                 text-transform: none;
+                color: #7d7d7d;
             }
 
             @media only screen and (max-width: $breakpoint-mobile) {
@@ -118,7 +123,7 @@ $breakpoint-mobile: 767px;
 
         input, .selectWrapper, .Button {
             width: 100%;
-            height: 40px;
+            height: 45px;
 
             @media only screen and (min-width: $breakpoint-small) {
                 width: 33%;
@@ -140,11 +145,13 @@ $breakpoint-mobile: 767px;
             -moz-appearance: none;
             appearance: none;
 
+            border-radius: 0;
+            background-color: #fff;
             border: 1px solid #dbdbdb;
             line-height: 1.8rem;
             overflow: hidden;
-            color: #7d7d7d;
-            font-size: 1.4rem;
+            color: #1d1d1b;
+            font-size: 1.6rem;
             font-family: 'GillSansMTStd-Medium';
             vertical-align: top;
             padding: 0.8rem 0.8rem 0.3rem;
@@ -175,34 +182,67 @@ $breakpoint-mobile: 767px;
         display: none;
         margin-top: 1rem;
 
+        p {
+            font-size: 1.8rem;
+            line-height: 1.33;
+            color: #4a4a4a;
+        }
+
         &.visible {
             display: block;
         }
 
         .row {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+
+            @media only screen and (min-width: $breakpoint-small) {
+                padding-left: 2rem;
+                padding-bottom: 1rem;
+                flex-direction: row;
+            }
 
             .col {
                 flex-direction: column;
                 width: 100%;
                 margin-top: 1.5rem;
             }
+
+            &.borderTop {
+                border-top: 1px solid #dbdbdb;
+                padding-top: 1rem;
+            }
+            &.borderBottom {
+                border-bottom: 1px solid #dbdbdb;
+                padding-bottom: 2rem;
+            }
+
+            &:nth-of-type(1) {
+                margin-top: 2rem;
+            }
         }
 
         .label {
-            font-family: 'GillSansMTStd-Medium';
-            font-size: 1.5rem;
+            font-family: 'TimesDigitalW04-Regular';
+            font-size: 1.6rem;
             text-align: left;
-            color: #333;
+            color: #1d1d1d;
             display: flex;
             flex-direction: column;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
 
+            &.gill {
+                font-family: 'GillSansMTStd-Medium';
+                font-size: 1.4rem;
+                color: #696969;
+                line-height: 1.22;
+            }
+
             &.notes {
                 display: none;
                 opacity: 0;
+                font-family: 'GillSansMTStd-Medium';
                 font-size: 1.3rem;
                 margin-top: 1rem;
                 color: #696969;
@@ -249,15 +289,22 @@ $breakpoint-mobile: 767px;
 
         .big {
             font-family: TimesModern-Bold;
-            font-size: 6.5rem;
-            line-height: 1.22;
-            color: #069;
+            font-size: 12rem;
+            line-height: 1.08;
+            color: #254251;
             margin-top: -.1em;
             margin-bottom: -.15em;
 
+            @media only screen and (min-width: $breakpoint-small) {
+                &.income {
+                    margin-left: -2rem;
+                }
+            }
+
             &.mid {
-                font-size: 3.5rem;
-                color: #254251;
+                font-size: 4.6rem;
+                line-height: 1.22;
+                color: #0a6795;
             }
         }
     }

@@ -82,6 +82,11 @@ if (typeof document !== 'undefined') {
           'THERE HAS BEEN A PROBLEM PARSING YOUR INCOME.';
         return;
       }
+      if (cleanIncome < 10000) {
+        this.$$('.error').innerHTML =
+          'PLEASE INPUT AN INCOME GREATER THAN £10,000.';
+        return;
+      }
 
       // dropdown: will include the discrete list of cases from the dataset
       // if (this.dropdownVisible === true) {
@@ -96,9 +101,7 @@ if (typeof document !== 'undefined') {
       this.showData(this.data);
 
       // send income input
-      console.log(
-        ga('send', 'event', 'budget-calculator', 'income', this.data.income)
-      );
+      ga('send', 'event', 'budget-calculator', 'income', this.data.income);
     },
 
     displayDropdown: function(mapping) {

@@ -11,9 +11,10 @@
         <link rel="stylesheet" href="styles.css" type="text/css">
 
         <div class="Headline">The Times 2017 budget calculator</div>
+        <div class="Standfirst">How has the chancellor's statement affected your finances?</div>
 
         <form autocomplete="off" id="form" >
-            <input type="text" id="incomeInput" placeholder="Enter your annual income" />
+            <input type="text"  id="incomeInput" placeholder="Enter your annual income (£)" />
 
             <div class="selectWrapper">
                 <i class="Icon Icon--arrowDown"></i>
@@ -27,30 +28,29 @@
         <div class="error"></div>
 
         <div id="app-info">
-            <!-- <div>Your income bracket: {{incomeData.income}}</div> -->
-
-            <p>Figures for a reference income of {{incomeData.income_str}} for a {{sheetLabel}}</p>
+            <p>Your closest income band is {{incomeData.income_str}}.</p>
+            <p>Figures for a {{sheetLabel}}.</p>
             <div class="row">
                 <div class="col">
-                    <div class="label">Your income change next year (2018/19):</div>
-                    <div class="big">{{incomeData.income_change_2018_str}}</div>
+                    <div class="label">Income change next year (2018/19):</div>
+                    <div class="big income">{{incomeData.income_change_2018_str}}</div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row borderTop">
                 <div class="col">
                     <div class="label">Your net income this year (2017/18):</div>
                     <div class="big mid">{{incomeData.total_income_2017_str}}</div>
-                    <div class="label">after deduction of a {{incomeData.tax_nic_bill_2017_str}} tax bill</div>
+                    <div class="label gill">after deduction of a {{incomeData.tax_nic_bill_2017_str}} tax bill</div>
                 </div>
                 <div class="col">
                     <div class="label">Your net income next year (2018/19):</div>
                     <div class="big mid">{{incomeData.total_income_2018_str}}</div>
-                    <div class="label">after deduction of a {{incomeData.tax_nic_bill_2018_str}} tax bill</div>
+                    <div class="label gill">after deduction of a {{incomeData.tax_nic_bill_2018_str}} tax bill</div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row borderBottom">
                 <div class="col">
                     <div class="label">Your child benefit this year (2017/18):</div>
                     <div class="big mid">{{incomeData.child_benefit_2017_str}}</div>
