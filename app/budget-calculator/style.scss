@@ -116,19 +116,22 @@ $breakpoint-mobile: 767px;
             margin-bottom: 1rem;
         }
 
-        input, select, .Button {
+        input, .selectWrapper, .Button {
             width: 100%;
             height: 40px;
 
             @media only screen and (min-width: $breakpoint-small) {
-                width: 30%;
+                width: 33%;
                 height: 50px;
             }
         }
 
         @media only screen and (min-width: $breakpoint-small) {
-            select, .Button {
+            .Button {
                 margin-left: 1rem;
+            }
+            input {
+                margin-right: 1rem;
             }
         }
 
@@ -145,7 +148,26 @@ $breakpoint-mobile: 767px;
             font-family: 'GillSansMTStd-Medium';
             vertical-align: top;
             padding: 0.8rem 0.8rem 0.3rem;
+        }
 
+        .selectWrapper {
+            position: relative;
+
+            i {
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                z-index: 1;
+                font-size: .8rem;
+            }
+
+            select {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 
