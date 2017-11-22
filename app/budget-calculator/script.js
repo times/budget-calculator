@@ -30,55 +30,55 @@ if (typeof document !== 'undefined') {
           sheet: '1',
           text: 'Young graduate',
           label:
-            'Single person, employed, working 30+ hours per week, with no children, paying student loan repayments',
+            'single person, employed, working 30+ hours per week, with no children, paying student loan repayments',
           notes: '',
         },
         {
           sheet: '2',
           text: 'Single professional',
           label:
-            'Single person, employed, working 30+ hours per week, with no children and no student debt',
+            'single person, employed, working 30+ hours per week, with no children and no student debt',
           notes: '',
         },
         {
           sheet: '3',
           text: 'Entrepreneur',
           label:
-            'Single person, self employed, working 30+ hours a week with no children',
+            'single person, self employed, working 30+ hours a week with no children',
           notes: '',
         },
         {
           sheet: '4',
           text: 'Single person, one child',
           label:
-            'Single person, employed, working 30+ hours per week, with one child (over the age of one)',
+            'single person, employed, working 30+ hours per week, with one child (over the age of one)',
           notes: '',
         },
         {
           sheet: '5',
           text: 'Family of three, both working',
           label:
-            'Couple, both employed, working 30+ hours per week, assumed household income split 75% to one partner and 25% to other partner, with one child (over the age of one)',
+            'couple, both employed, working 30+ hours per week, assumed household income split 75% to one partner and 25% to other partner, with one child (over the age of one)',
           notes: '',
         },
         {
           sheet: '6',
           text: 'Family of three, one working',
           label:
-            'Couple, one employed, working 30+ hours per week, with one child (over the age of one)',
+            'couple, one employed, working 30+ hours per week, with one child (over the age of one)',
           notes: '',
         },
         {
           sheet: '7',
           text: 'Working couple, no children',
           label:
-            'Couple, both employed, working 30+ hours per week, assumed household income split 75% to one partner and 25% to other partner, with no children',
+            'couple, both employed, working 30+ hours per week, assumed household income split 75% to one partner and 25% to other partner, with no children',
           notes: '',
         },
         {
           sheet: '8',
           text: 'Single pensioner',
-          label: 'Single person, pensioner, aged 65-74',
+          label: 'single person, pensioner, aged 65-74',
           notes: '',
         },
       ];
