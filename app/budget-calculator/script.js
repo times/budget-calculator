@@ -5,6 +5,7 @@ module.exports = require('../index.js')('budget-calculator');
 if (typeof document !== 'undefined') {
   require('./style.scss');
   const dataset = require('./results.json');
+  require('smoothscroll-polyfill').polyfill();
 
   Polymer({
     is: 'budget-calculator',
@@ -118,6 +119,12 @@ if (typeof document !== 'undefined') {
     },
 
     showData: function(data) {
+      // on mobile, scroll Y down by 200px on click.
+      // this helps the reader to notice we changed things
+      if (this.parentElement.clientWidth < 600) {
+        window.scrollBy({ top: 200, left: 0, behavior: 'smooth' });
+      }
+
       const sheetIDObj = this.sheetsMapping.find(e => e.text === data.case);
       const sheetID = parseInt(sheetIDObj.sheet);
       this.sheetLabel = sheetIDObj.label;
@@ -161,7 +168,6 @@ if (typeof document !== 'undefined') {
       }
 
       this.incomeData = incomeBracket;
-      console.log(incomeBracket);
 
       document.getElementById('app-info').classList.add('visible');
 
@@ -171,8 +177,6 @@ if (typeof document !== 'undefined') {
         document.getElementsByClassName('notes')[0].classList.add('visible');
         document.getElementById('showMore').classList.add('invisible');
       });
-
-      // @TODO: handle income < 10,000
     },
   });
 }

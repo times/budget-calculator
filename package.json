@@ -16,7 +16,9 @@
   "bugs": "",
   "license": "ISC",
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "smoothscroll-polyfill": "^0.4.0"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
