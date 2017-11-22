@@ -10,7 +10,12 @@ if (typeof document !== 'undefined') {
   Polymer({
     is: 'budget-calculator',
 
-    properties: {},
+    properties: {
+      noheadline: {
+        type: String,
+        value: '',
+      },
+    },
 
     // Use for one-time set-up before property values are set
     created: function() {},

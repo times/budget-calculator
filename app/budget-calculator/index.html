@@ -10,8 +10,10 @@
 
         <link rel="stylesheet" href="styles.css" type="text/css">
 
-        <div class="Headline">The Times 2017 budget calculator</div>
-        <div class="Standfirst">How has the chancellor's statement affected your finances?</div>
+        <template is="dom-if" if="{{!noheadline}}">
+            <div class="Headline">The Times 2017 budget calculator</div>
+            <div class="Standfirst">How has the chancellor's statement affected your finances?</div>
+        </template>
 
         <form autocomplete="off" id="form" >
             <input type="text"  id="incomeInput" placeholder="Enter your annual income (£)" />
@@ -31,19 +33,19 @@
             <p>Your closest income band is {{incomeData.income_str}}. Figures for a {{sheetLabel}}.</p>
             <div class="row">
                 <div class="col">
-                    <div class="label">Income change next year (2018/19):</div>
+                    <div class="label">Income change next year (2018/19)</div>
                     <div class="big income">{{incomeData.income_change_2018_str}}</div>
                 </div>
             </div>
 
             <div class="row borderTop">
                 <div class="col">
-                    <div class="label">Your net income this year (2017/18):</div>
+                    <div class="label">Current net income (2017/18)</div>
                     <div class="big mid">{{incomeData.total_income_2017_str}}</div>
                     <div class="label gill">after a {{incomeData.tax_nic_bill_2017_str}} tax deduction</div>
                 </div>
                 <div class="col">
-                    <div class="label">Your net income next year (2018/19):</div>
+                    <div class="label">Net year's net income (2018/19)</div>
                     <div class="big mid">{{incomeData.total_income_2018_str}}</div>
                     <div class="label gill">after a {{incomeData.tax_nic_bill_2018_str}} tax deduction</div>
                 </div>
@@ -51,11 +53,11 @@
 
             <div class="row borderBottom">
                 <div class="col">
-                    <div class="label">Your child benefit this year (2017/18):</div>
+                    <div class="label">Current child benefit (2017/18)</div>
                     <div class="big mid">{{incomeData.child_benefit_2017_str}}</div>
                 </div>
                 <div class="col">
-                    <div class="label">Your child benefit next year (2018/19):</div>
+                    <div class="label">Next year's child benefit (2018/19)</div>
                     <div class="big mid">{{incomeData.child_benefit_2018_str}}</div>
                 </div>
             </div>
