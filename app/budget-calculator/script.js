@@ -4,7 +4,7 @@ module.exports = require('../index.js')('budget-calculator');
 
 if (typeof document !== 'undefined') {
   require('./style.scss');
-  const dataset = require('./results.json');
+  const dataset = require('./2017.json');
   require('smoothscroll-polyfill').polyfill();
 
   Polymer({
@@ -25,33 +25,64 @@ if (typeof document !== 'undefined') {
       // bug
       // dataset shows one empty slot, but it definitely isn't undefined
       // console.log(dataset, Object.keys(dataset), dataset['1']);
-
       this.sheetsMapping = [
         {
           sheet: '1',
-          text: 'Single professional',
+          text: 'Young graduate',
           label:
-            'single person, employed, working 30+ hours per week, no children, no student debt',
-          notes:
-            "The figures include an estimate of the effect of the 0.5% rise in Insurance Premium Tax from October 2016 and 2% rise from 1 June 2017.  For 2017/18 this broadly equates to an average estimated increase of £28.75 for a family with motor, household, pet and private health totalling £1,500 per annum.  For 2018/19 the estimated increase compared to 2016/17 is £30.00 per annum.  These figures do not reflect the Chancellor's commitment to legislate to end the compensation culture surrounding whiplash claims which could save drivers an average of £40 on their premiums. The figures include changes to rates which had been announced previously, either at Budget 2016 or separately.",
+            'Single person, employed, working 30+ hours per week, with no children, paying student loan repayments',
+          notes: '',
         },
         {
           sheet: '2',
-          text: 'Entrepreneur',
+          text: 'Single professional',
           label:
-            'single person, self-employed, working 30+ hours per week, no children',
-          notes:
-            "The figures include an estimate of the effect of the 0.5% rise in Insurance Premium Tax from October 2016 and 2% rise from 1 June 2017.  For 2017/18 this broadly equates to an average estimated increase of £28.75 for a family with motor, household, pet and private health totalling £1,500 per annum.  For 2018/19 the estimated increase compared to 2016/17 is £30.00 per annum.  These figures do not reflect the Chancellor's commitment to legislate to end the compensation culture surrounding whiplash claims which could save drivers an average of £40 on their premiums. The figures include changes to rates which had been announced previously, either at Budget 2016 or separately.",
+            'Single person, employed, working 30+ hours per week, with no children and no student debt',
+          notes: '',
         },
         {
           sheet: '3',
-          text: 'Single Parent, 1 child',
+          text: 'Entrepreneur',
           label:
-            'single person, working, 1 child (over the age of 1), working 30+ hours per week',
-          notes:
-            "The figures include an estimate of the effect of the 0.5% rise in Insurance Premium Tax from October 2016 and 2% rise from 1 June 2017.  For 2017/18 this broadly equates to an average estimated increase of £28.75 for a family with motor, household, pet and private health totalling £1,500 per annum.  For 2018/19 the estimated increase compared to 2016/17 is £30.00 per annum.  These figures do not reflect the Chancellor's commitment to legislate to end the compensation culture surrounding whiplash claims which could save drivers an average of £40 on their premiums. The figures include changes to rates which had been announced previously, either at Budget 2016 or separately.",
+            'Single person, self employed, working 30+ hours a week with no children',
+          notes: '',
+        },
+        {
+          sheet: '4',
+          text: 'Single person, one child',
+          label:
+            'Single person, employed, working 30+ hours per week, with one child (over the age of one)',
+          notes: '',
+        },
+        {
+          sheet: '5',
+          text: 'Family of three, both working',
+          label:
+            'Couple, both employed, working 30+ hours per week, assumed household income split 75% to one partner and 25% to other partner, with one child (over the age of one)',
+          notes: '',
+        },
+        {
+          sheet: '6',
+          text: 'Family of three, one working',
+          label:
+            'Couple, one employed, working 30+ hours per week, with one child (over the age of one)',
+          notes: '',
+        },
+        {
+          sheet: '7',
+          text: 'Working couple, no children',
+          label:
+            'Couple, both employed, working 30+ hours per week, assumed household income split 75% to one partner and 25% to other partner, with no children',
+          notes: '',
+        },
+        {
+          sheet: '8',
+          text: 'Single pensioner',
+          label: 'Single person, pensioner, aged 65-74',
+          notes: '',
         },
       ];
+
       this.displayDropdown(this.sheetsMapping);
     },
 
@@ -162,7 +193,7 @@ if (typeof document !== 'undefined') {
           if (incomeBracket[prop] < 0) {
             incomeBracket[prop + '_str'] =
               '-£' + Math.abs(incomeBracket[prop]).toLocaleString();
-          } else if (prop === 'income_change_2018') {
+          } else if (prop === 'change_2018') {
             incomeBracket[prop + '_str'] =
               '+£' + incomeBracket[prop].toLocaleString();
           } else {
