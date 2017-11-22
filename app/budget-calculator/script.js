@@ -59,11 +59,6 @@ if (typeof document !== 'undefined') {
       );
 
       this.incomeBar = this.$['incomeInput'];
-      this.incomeBar.addEventListener(
-        'focusout',
-        this.darkenButton.bind(this),
-        false
-      );
     },
 
     // Called after the element is detached from the document
@@ -175,13 +170,6 @@ if (typeof document !== 'undefined') {
       });
 
       // @TODO: handle income < 10,000
-    },
-
-    darkenButton: function() {
-      const dips = document.getElementsByClassName('dip');
-      for (let i = 0; i < dips.length; i++) {
-        dips[i].classList.add('visible');
-      }
     },
   });
 }
