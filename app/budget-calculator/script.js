@@ -182,10 +182,19 @@ if (typeof document !== 'undefined') {
         (a, b) => parseInt(a.income) - parseInt(b.income)
       );
 
-      // Return last row to be in the bracket range
-      const incomeBracket = sortedDataFromTables.reverse().find(income => {
-        return income.income <= this.data.income;
-      });
+      // return nearest neighbour
+      let currentFirst = sortedDataFromTables[0].income;
+      let diff = Math.abs(this.data.income - currentFirst);
+      for (let i = 0; i < sortedDataFromTables.length; i++) {
+        let newdiff = Math.abs(
+          this.data.income - sortedDataFromTables[i].income
+        );
+        if (newdiff < diff) {
+          diff = newdiff;
+          currentFirst = sortedDataFromTables[i];
+        }
+      }
+      let incomeBracket = currentFirst;
 
       // turn data into meaningful strings with £ sign and +/ in the right place
       for (const prop in incomeBracket) {
